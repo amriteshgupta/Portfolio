@@ -3,8 +3,7 @@ import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 
-
-const Portfolio = () => { 
+const Portfolio = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
     const [portfolio, setPortfolio] = useState([]);
 
@@ -16,16 +15,7 @@ const Portfolio = () => {
         return () => {
             clearTimeout(timer);
         }
-    });
-
-    useEffect(() => {
-        getPortfolio();
     }, []);
-
-    const getPortfolio = async () => {
-        const querySnapshot = await getDocs(collection(db, 'portfolio'));
-        setPortfolio(querySnapshot.docs.map((doc) => doc.data()));
-    }
 
     const renderPortfolio = (portfolio) => {
         return (
@@ -35,9 +25,9 @@ const Portfolio = () => {
                         return (
                             <div className="image-box" key={idx}>
                                 <img 
-                                src={port.image}
-                                className="portfolio-image"
-                                alt="portfolio" />
+                                    src={port.image}
+                                    className="portfolio-image"
+                                    alt="portfolio" />
                                 <div className="content">
                                     <p className="title">{port.name}</p>
                                     <h4 className="description">{port.description}</h4>
@@ -53,7 +43,6 @@ const Portfolio = () => {
             </div>
         );
     }
-
 
     return (
         <>
