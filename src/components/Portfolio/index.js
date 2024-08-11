@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Loader from "react-loaders";
 import AnimatedLetters from "../AnimatedLetters";
+import { db, collection, getDocs } from "../../firebase-config"; // Adjust path as needed
 import "./index.scss";
-
-
-
 
 const Portfolio = () => { 
     const [letterClass, setLetterClass] = useState('text-animate');
@@ -18,7 +16,7 @@ const Portfolio = () => {
         return () => {
             clearTimeout(timer);
         }
-    });
+    }, []);
 
     useEffect(() => {
         getPortfolio();
@@ -55,7 +53,6 @@ const Portfolio = () => {
             </div>
         );
     }
-
 
     return (
         <>
