@@ -4,6 +4,8 @@ import AnimatedLetters from "../AnimatedLetters";
 import "./index.scss";
 
 
+
+
 const Portfolio = () => { 
     const [letterClass, setLetterClass] = useState('text-animate');
     const [portfolio, setPortfolio] = useState([]);
